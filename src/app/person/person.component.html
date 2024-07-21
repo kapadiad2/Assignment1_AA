@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Person List</h2>
+      <div class="table-responsive">
+        <table class="table table-striped custom-table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Address</th>
+              <th scope="col">City</th>
+              <th scope="col">Province</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Last Updated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let person of persons">
+              <td>{{ person.id }}</td>
+              <td>{{ person.firstName }} {{ person.lastName }}</td>
+              <td>{{ person.address }}</td>
+              <td>{{ person.city }}</td>
+              <td>{{ person.province }}</td>
+              <td>{{ person.phone }}</td>
+              <td>{{ person.lastUpdated }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<div class="row mt-4">
+<span><h1>Add Person Details</h1></span>
+</div>
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <form [formGroup]="personForm" (ngSubmit)="submitForm()" class="mb-3">
+        <input id="id" formControlName="id" hidden>
+        
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name:</label>
+          <input id="firstName" formControlName="firstName" type="text" class="form-control">
+          <div *ngIf="personForm.get('firstName')?.invalid && personForm.get('firstName')?.touched" class="text-danger">
+            First Name must contain only letters.
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name:</label>
+          <input id="lastName" formControlName="lastName" type="text" class="form-control">
+          <div *ngIf="personForm.get('lastName')?.invalid && personForm.get('lastName')?.touched" class="text-danger">
+            Last Name must contain only letters.
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="address" class="form-label">Address:</label>
+          <input id="address" formControlName="address" type="text" class="form-control">
+        </div>
+        
+        <div class="mb-3">
+          <label for="city" class="form-label">City:</label>
+          <input id="city" formControlName="city" type="text" class="form-control">
+          <div *ngIf="personForm.get('city')?.invalid && personForm.get('city')?.touched" class="text-danger">
+            City must contain only letters.
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="province" class="form-label">Province:</label>
+          <select formControlName="province" class="form-select">
+            <option *ngFor="let province of provincesList">{{ province }}</option>
+          </select>
+          <div *ngIf="personForm.get('province')?.invalid && personForm.get('province')?.touched" class="text-danger">
+            Province must be a valid Canadian province or territory.
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone:</label>
+          <input id="phone" formControlName="phone" type="text" class="form-control">
+          <div>
+            Formatted Phone: {{ formattedPhonenumber }}
+          </div>
+        </div>
+        
+        <input id="lastUpdated" formControlName="lastUpdated" hidden>
+        
+        <button type="submit" class="btn btn-primary" [disabled]="personForm.invalid">Submit</button>
+      </form>
+    </div>
+
+    <div class="col-md-6">
+      <div *ngIf="submittedPerson" class="bg-light p-3">
+        <h2>Submitted Person Data</h2>
+        <p><strong>ID:</strong> {{ submittedPerson.id }}</p>
+        <p><strong>First Name:</strong> {{ submittedPerson.firstName }}</p>
+        <p><strong>Last Name:</strong> {{ submittedPerson.lastName }}</p>
+        <p><strong>Address:</strong> {{ submittedPerson.address }}</p>
+        <p><strong>City:</strong> {{ submittedPerson.city }}</p>
+        <p><strong>Province:</strong> {{ submittedPerson.province }}</p>
+        <p><strong>Phone:</strong> {{ formattedPhonenumber }}</p>
+        <p><strong>Last Updated:</strong> {{ submittedPerson.lastUpdated | date }}</p>
+      </div>
+    </div>
+  </div>
+</div>

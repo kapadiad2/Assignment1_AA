@@ -1,0 +1,43 @@
+
+[
+    {
+      "id": 1,
+      "firstName": "Devanshi",
+      "lastName": "Kapadia",
+      "address": "12945 Main St",
+      "city": "Toronto",
+      "province": "ON",
+      "phone": "234-654-5464",
+      "lastUpdated": "11=07-2024"
+    },
+    {
+      "id": 2,
+      "firstName": "Kesha",
+      "lastName": "Sisodia",
+      "address": "45 St",
+      "city": "Edmonton",
+      "province": "Alberta",
+      "phone": "987-654-3210",
+      "lastUpdated": "07-07-2024"
+    },
+    {
+        "id": 3,
+        "firstName": "Mihir",
+        "lastName": "Mashilkar",
+        "address": "34653 Avenue",
+        "city": "Edmonton",
+        "province": "Alberta",
+        "phone": "987-654-3210",
+        "lastUpdated": "25-12-2019"
+    },
+    {
+        "id": 4,
+        "firstName": "Nirav",
+        "lastName": "Savsani",
+        "address": "23871 89th St",
+        "city": "Sasketoon",
+        "province": "Sasketwan",
+        "phone": "654-123-0978",
+        "lastUpdated": "24-04-2021"
+      }
+  ]
